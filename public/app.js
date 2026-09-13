@@ -214,7 +214,7 @@ function ensureArray(d) { return Array.isArray(d) ? d : []; }
 const SERVICE_OPTS = {
   label: '服务',
   fields: [
-    { k: 'href', label: '链接地址', type: 'text', hint: '点击卡片跳转的 URL，如 http://192.168.1.100:8096' },
+    { k: 'href', label: '链接地址', type: 'text', hint: '点击卡片跳转的 URL，如 http://<服务IP>:<端口>' },
     { k: 'icon', label: '图标', type: 'text', hint: '图标文件名（emby.png）或前缀图标 mdi-xxx / si-xxx / sh-xxx' },
     { k: 'description', label: '描述', type: 'text', hint: '服务说明文字' },
     { k: 'ping', label: 'Ping 主机', type: 'text', hint: '用 ICMP 监测主机存活（填主机名/IP）' },
@@ -273,13 +273,13 @@ function renderGroupTree(container, data, opts, itemLabel) {
     });
 
     card.appendChild(el('button', { class: 'btn small ghost', onclick: () => {
-      items.push({ '新' + itemLabel: { href: '' } }); renderEditor();
+      items.push({ ['新' + itemLabel]: { href: '' } }); renderEditor();
     } }, '＋ 添加' + itemLabel));
     wrap.appendChild(card);
   });
 
   wrap.appendChild(el('button', { class: 'btn', onclick: () => {
-    data.push({ '新分组': [{ '新' + itemLabel: { href: '' } }] }); renderEditor();
+    data.push({ '新分组': [{ ['新' + itemLabel]: { href: '' } }] }); renderEditor();
   } }, '＋ 添加分组'));
 
   container.appendChild(wrap);
