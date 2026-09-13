@@ -1,0 +1,13 @@
+{
+  "name": "homepage-config-zh",
+  "version": "1.0.0",
+  "description": "中文 Homepage 配置管理器 — 在极空间 Docker 下部署的 Homepage 仪表盘可视化配置工具",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "^1.10.2"
+  }
+}

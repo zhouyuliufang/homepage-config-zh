@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage 配置管理器（中文）</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- 登录遮罩 -->
+  <div id="login" class="login-overlay hidden">
+    <div class="login-box">
+      <h1>Homepage 配置管理器</h1>
+      <p class="muted">请输入访问密码以继续</p>
+      <input id="login-password" type="password" placeholder="访问密码" autocomplete="off" />
+      <button id="login-btn">登 录</button>
+      <div id="login-error" class="error hidden"></div>
+    </div>
+  </div>
+
+  <!-- 主应用 -->
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⬡</span>
+        <div>
+          <div class="title">Homepage 配置管理器</div>
+          <div class="subtitle">中文 · 可视化编辑你的导航仪表盘</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span id="save-status" class="save-status"></span>
+        <button id="new-file-btn" class="btn ghost">新建配置</button>
+        <button id="refresh-btn" class="btn ghost">刷新</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-title">配置文件</div>
+        <ul id="file-list" class="file-list"></ul>
+        <div class="sidebar-hint muted">
+          与 Homepage 共用同一 <code>/config</code> 目录，保存后仪表盘将自动热加载。
+        </div>
+      </aside>
+
+      <main class="main">
+        <div id="editor" class="editor">
+          <div class="empty-state muted">← 请从左侧选择一个配置文件开始编辑</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

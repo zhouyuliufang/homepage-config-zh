@@ -1,0 +1,18 @@
+services:
+  homepage-config-zh:
+    image: homepage-config-zh:latest
+    container_name: homepage-config-zh
+    restart: unless-stopped
+    ports:
+      - "3005:3005"
+    environment:
+      - CONFIG_PATH=/app/config
+      - PORT=3005
+      # 访问密码：请修改为强密码；若留空则开放访问（局域网内请务必设置）
+      - ACCESS_PASSWORD=homepage-config
+      - NODE_ENV=production
+      - TZ=Asia/Shanghai
+    volumes:
+      # 与 Homepage 共用同一配置目录（read-write），保存后仪表盘自动热加载
+      # 请将 * 替换为你 Homepage 的 config 实际路径（如 /你的路径/Docker/homepage/config）
+      - "*:/app/config:rw"
